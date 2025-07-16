@@ -4,13 +4,13 @@ README - Automated gMDM data set upload application
 This tool automates the following tasks:
 
 1. Detects external drives (e.g., USB).
-2. Lists available folders and prompts user to select one.
+2. Lists available folders, navigates trough folders and sub folders forward and backward and prompts user action.
 3. Extracts:
    - Timestamp from the oldest .log file
    - VIN from the .html diagnostic report
    - AU number, description, and location from folder name
 4. Updates the .json metadata file in the selected folder.
-5. Launches gmdm_companion_cli for verification and uploading.
+5. Launches gmdm_companion_cli for uploading selected folder with dataset.
 
 ----------------------------------------------------
 PYTHON INSTALLATION (Windows)
@@ -47,19 +47,17 @@ Install these libraries before running the script:
 
     python -m pip install beautifulsoup4
     python -m pip install psutil 
-    python -m pip install pyautogui
-
-
+    
 ----------------------------------------------------
 HOW TO RUN
 ----------------------------------------------------
 
 1. Plug in your USB or external drive with trace folders.
 
-2. Double-click the `gMDM_trace_uploader.bat` file,
+2. Double-click the `START` file or gMDM.py if Python installed and environment variables are set, 
    or open Command Prompt and run:
 
-       python json_metadata_script.py
+       python gMDM.py
 
 3. Follow on-screen instructions:
    - Select external drive
@@ -76,12 +74,13 @@ CLI REQUIREMENTS
 
 Folder must exist at:
 
-    C:\Users\jvirb\OneDrive\Desktop\MDM\gmdm_companion_cli_4.3.0
+    C:\Users\<YourUsername>\Path\To\Your\Folder
+	(This will be something with YOUR USER NAME, example:C:\Users\jvirb\Desktop\MDM\gmdm_companion_cli_4.3.0) 
 
 Required contents:
     - gmdm_companion_cli (executable, no .exe needed in script)
     - Internet connection for Azure authentication
-    - You will be prompted to log in after launch (60 sec delay built-in)
+    - You will be prompted to log in
 
 ----------------------------------------------------
 FOLDER NAMING FORMAT
@@ -93,7 +92,7 @@ Folder names must follow this exact format:
 
 Example:
 
-    AU416240118, NAR_CPA_WeekendDrive_Connect, BigSur
+    AUxxxxxxxxx, NAR_CPA_WeekendDrive_Connect, BigSur
 
 The script uses this pattern to extract metadata fields.
 
@@ -101,5 +100,5 @@ The script uses this pattern to extract metadata fields.
 TROUBLESHOOTING
 ----------------------------------------------------
 
-Ask Jurgis Vi
+Ask JurgisVi
 
