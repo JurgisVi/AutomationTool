@@ -2,25 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.0] - 2025-07-16
+## [Unreleased]
+
+## [1.1.0] - 2025-07-30
 ### Added
-- Navigation support for browsing nested folders and returning to previous directory
-- Inline comments for clarity on all functions and significant logic blocks
-- `simulate_cli_upload()` function to run CLI commands visibly in CMD using `subprocess`
+- Support for nested folder navigation with history and back option
+- Debug output to verify CLI path existence
 
 ### Changed
-- Replaced `pyautogui` automation with more reliable and readable `subprocess`-based execution
-- Improved folder selection UI: displays date-modified, handles invalid inputs more gracefully
-- Robust VIN detection with general `W[A-Z0-9]{16}` pattern (instead of fixed `WA1ZZZ...`)
-- Modularized main logic into cleanly separated helper functions
+- CLI path handling: now dynamically based on script location instead of hardcoded
+- Improved user prompts for selecting and uploading trace folders
+- Enhanced folder listing formatting with aligned names and timestamps
+- Added inline comments and better sectioning for readability
 
-### Fixed
-- Edge case where folder name format (AU, Description, Location) was not properly validated
-- Avoided script failure when required trace files are missing by adding retry logic
+### Removed
+- 60-second timeout between CLI commands (streamlined upload process)
 
----
-
-## [1.0.0] - Initial version
-- Simple folder selection and file extraction
-- Used `pyautogui` to automate CLI command typing
-- Performed VIN and timestamp insertion into JSON
+## [1.0.0] - 2025-07-15
+- Initial version with basic trace folder selection and upload
